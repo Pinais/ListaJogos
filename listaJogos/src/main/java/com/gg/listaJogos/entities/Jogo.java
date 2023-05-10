@@ -2,6 +2,7 @@ package com.gg.listaJogos.entities;
 
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,21 +22,25 @@ public class Jogo {
 	private Integer ano;
 	private String genero;
 	private String plataforma;
+	private Double pontuacao;
 	private String imgUrl;
+	@Column(columnDefinition = "TEXT")
 	private String descricaoCurta;
+	@Column(columnDefinition = "TEXT")
 	private String descricaoLonga;
 	
 	public Jogo() {
 		
 	}
 
-	public Jogo(Long id, String titulo, Integer ano, String genero, String plataforma, String imgUrl,
+	public Jogo(Long id, String titulo, Integer ano, String genero, String plataforma, Double pontuacao, String imgUrl,
 			String descricaoCurta, String descricaoLonga) {
 		this.id = id;
 		this.titulo = titulo;
 		this.ano = ano;
 		this.genero = genero;
 		this.plataforma = plataforma;
+		this.pontuacao = pontuacao;
 		this.imgUrl = imgUrl;
 		this.descricaoCurta = descricaoCurta;
 		this.descricaoLonga = descricaoLonga;
@@ -79,6 +84,14 @@ public class Jogo {
 
 	public void setPlataforma(String plataforma) {
 		this.plataforma = plataforma;
+	}
+
+	public Double getPontuacao() {
+		return pontuacao;
+	}
+
+	public void setPontuacao(Double pontuacao) {
+		this.pontuacao = pontuacao;
 	}
 
 	public String getImgUrl() {
