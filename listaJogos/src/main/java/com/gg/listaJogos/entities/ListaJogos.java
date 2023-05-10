@@ -14,16 +14,16 @@ public class ListaJogos {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String name;
+	private String nome;
 	
 	public ListaJogos() {
 		
 	}
 
-	public ListaJogos(Long id, String name) {
+	public ListaJogos(Long id, String nome) {
 		super();
 		this.id = id;
-		this.name = name;
+		this.nome = nome;
 	}
 
 	public Long getId() {
@@ -34,12 +34,12 @@ public class ListaJogos {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getnome() {
+		return nome;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setnome(String nome) {
+		this.nome = nome;
 	}
 
 	@Override
