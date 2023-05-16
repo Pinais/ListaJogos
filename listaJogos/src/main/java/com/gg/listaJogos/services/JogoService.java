@@ -11,6 +11,7 @@ import com.gg.listaJogos.dto.JogoDTO;
 import com.gg.listaJogos.dto.JogoMinDTO;
 import com.gg.listaJogos.dto.error.ErrorException;
 import com.gg.listaJogos.entities.Jogo;
+import com.gg.listaJogos.projections.JogoMinProjection;
 import com.gg.listaJogos.repositories.JogoRepository;
 
 
@@ -25,6 +26,16 @@ public class JogoService {
 		List<JogoMinDTO> listaMinJogos = new ArrayList<JogoMinDTO>();
 		for(Jogo jogo : listaJogos) {
 			listaMinJogos.add(new JogoMinDTO(jogo));
+		}
+		return listaMinJogos;
+	}
+	
+	@Transactional(readOnly = true)
+	public List<JogoMinDTO> findByList(Long idLista){
+		List<JogoMinProjection> listaJogos = jogoRepository.searchByList(idLista);
+		List<JogoMinDTO> listaMinJogos = new ArrayList<JogoMinDTO>();
+		for(JogoMinProjection projecao_jogo : listaJogos) {
+			listaMinJogos.add(new JogoMinDTO(projecao_jogo));
 		}
 		return listaMinJogos;
 	}
